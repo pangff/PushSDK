@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        tools:context="com.jhss.pushsdk.MainActivity">
+
+    <Button
+            android:text="注册"
+            android:id="@+id/bt_register"
+            android:gravity="center"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+    <!--<Button-->
+            <!--android:text="MI设置别名"-->
+            <!--android:id="@+id/bt_alias"-->
+            <!--android:gravity="center"-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="wrap_content"/>-->
+
+    <!--<Button-->
+            <!--android:text="MI设置帐号"-->
+            <!--android:id="@+id/bt_account"-->
+            <!--android:gravity="center"-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="wrap_content"/>-->
+</LinearLayout>
