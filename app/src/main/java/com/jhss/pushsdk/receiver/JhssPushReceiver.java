@@ -1,10 +1,12 @@
 package com.jhss.pushsdk.receiver;
 
-import com.jhss.pushsdk.util.PushLogger;
-
+import android.app.Notification;
+import android.app.NotificationManager;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
+
+import com.jhss.pushsdk.util.PushLogger;
 
 /**
  * Created by pangff on 16/7/30.
@@ -37,6 +39,7 @@ public class JhssPushReceiver extends BroadcastReceiver{
     public void onReceive(Context context, Intent intent) {
         if(intent.getAction()==ACTION_REGISTER){
             String thirdPushId = intent.getStringExtra(EXTRA_THIRD_PUSH_ID);
+            PushLogger.d(thirdPushId);
             onReceiveRegisterResult(context,thirdPushId);
         }
         if(intent.getAction()==ACTION_MESSAGE){
@@ -60,13 +63,13 @@ public class JhssPushReceiver extends BroadcastReceiver{
     }
 
     /**
-     * 服务注册
+     * 服务注册回调
      * @param context
      * @param thirdPushId
      */
     public void onReceiveRegisterResult(Context context,String thirdPushId){
+        PushLogger.e("服务注册回调");
 
-        PushLogger.d("JhssPushReceiver-onReceiveRegisterResult:thirdPushId="+thirdPushId);
     }
 
     /**
@@ -74,6 +77,10 @@ public class JhssPushReceiver extends BroadcastReceiver{
      */
     public void onNotificationMessageArrived(Context context, String message) {
         PushLogger.d("JhssPushReceiver-onNotificationMessageArrived:message="+message);
+        NotificationManager manager= (NotificationManager)context.getSystemService(Context.NOTIFICATION_SERVICE);
+        Notification notification = new Notification();
+        notification.tickerText = message;
+        manager.notify(1,notification);
     }
 
     /**
@@ -87,8 +94,11 @@ public class JhssPushReceiver extends BroadcastReceiver{
      * 透传消息
      */
     public void onReceivePassThroughMessage(Context context, String message) {
-
         PushLogger.d("JhssPushReceiver-onReceivePassThroughMessage:message="+message);
+        NotificationManager manager= (NotificationManager)context.getSystemService(Context.NOTIFICATION_SERVICE);
+        Notification notification = new Notification();
+        notification.tickerText = message;
+        manager.notify(2,notification);
     }
 
 

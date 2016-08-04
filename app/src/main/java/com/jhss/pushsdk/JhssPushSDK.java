@@ -1,10 +1,10 @@
 package com.jhss.pushsdk;
 
+import android.content.Context;
+
 import com.jhss.pushsdk.register.HuaWeiPushRegister;
 import com.jhss.pushsdk.register.MiPushRegister;
 import com.jhss.pushsdk.util.PlatformUtil;
-
-import android.content.Context;
 
 /**
  * Created by pangff on 16/7/29.
@@ -23,7 +23,7 @@ public class JhssPushSDK {
             HuaWeiPushRegister.registerPush(context);
         }else{
             //默认小米
-            MiPushRegister.registerPush(context);
+            HuaWeiPushRegister.registerPush(context);
         }
     }
 
